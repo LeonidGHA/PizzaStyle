@@ -1,19 +1,19 @@
 import HtmlMainMarkup from "../../Helpers/HtmlMarkup/HtmlMainMarkup";
-import { useDispatch } from "react-redux";
-import { getPizzas } from "../../redux/pizza/pizzas-operations";
-import { useEffect } from "react";
-import PizzasList from "../../components/PizzasList/PizzasList";
+import PizzasList from "../../components/Pizzas/PizzasList/PizzasList";
+
+import useCart from "../../shared/hooks/useCart";
+
+import css from "./PizzaPage.module.scss";
 
 const PizzaPage = () => {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getPizzas());
-  }, [dispatch]);
+  const cartHook = useCart();
 
   return (
     <HtmlMainMarkup>
-      <h1>PizzaPage</h1>
-      <PizzasList />
+      <section className={css.section_wrapper}>
+        <h1>PizzaPage</h1>
+        <PizzasList cartHook={cartHook} />
+      </section>
     </HtmlMainMarkup>
   );
 };

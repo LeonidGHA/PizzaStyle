@@ -1,0 +1,94 @@
+.pizzaItem_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  height: 100%;
+
+  background-color: rgb(255, 255, 255);
+
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+
+  transition: all 450ms cubic-bezier(0.4, 0, 0.2, 1);
+  &:hover {
+    box-shadow: rgba(0, 0, 0, 0.17) 0px 4px 28px;
+  }
+  &:hover .pizzaItem_image {
+    transform: scale(1.1);
+  }
+}
+
+.pizzaItem_imageWrapper {
+  overflow: hidden;
+}
+
+.pizzaItem_image {
+  transition: all 450ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.pizzaItem_wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+
+  padding: 10px;
+
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+.pizzaItem_title {
+  margin-bottom: 20px;
+}
+.pizzaItem_description {
+  margin-bottom: 20px;
+}
+
+.pizzaItem_priceWrapper {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  flex-grow: 1;
+  margin-top: auto;
+}
+
+.pizzaItem_btnAdd {
+  width: 150px;
+  height: 40px;
+
+  border-radius: 20px;
+
+  color: #fff;
+  background-color: rgb(254, 0, 33);
+
+  transition: background-color 450ms cubic-bezier(0.4, 0, 0.2, 1);
+  &:hover,
+  &:focus {
+    background-color: rgb(190, 23, 27);
+  }
+}
+
+.pizzaItem_quantityWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 150px;
+}
+
+.pizzaItem_quantityBtn {
+  width: 40px;
+  height: 40px;
+
+  border-radius: 50%;
+
+  color: #fff;
+  background-color: rgb(254, 0, 33);
+
+  transition: background-color 450ms cubic-bezier(0.4, 0, 0.2, 1);
+  &:hover {
+    background-color: rgb(190, 23, 27);
+  }
+}

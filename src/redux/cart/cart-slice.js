@@ -3,17 +3,23 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   chosen: [],
-  total: null,
 };
 
 const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
-    cartUpdate: (state, { payload }) => {
-      state.user = {
-        ...payload,
-      };
+    cartAddPizza: (state, { payload }) => {
+      state.chosen = [...state.chosen, payload];
+    },
+    cartIncrementPizza: (state, { payload }) => {
+      state.chosen = payload;
+    },
+    cartDecrementPizza: (state, { payload }) => {
+      state.chosen = payload;
+    },
+    cartRemovePizza: (state, { payload }) => {
+      state.chosen = payload;
     },
   },
 });
@@ -38,5 +44,10 @@ const cartSlice = createSlice({
 //   });
 // },
 
-export const { cartUpdate } = cartSlice.actions;
+export const {
+  cartAddPizza,
+  cartIncrementPizza,
+  cartDecrementPizza,
+  cartRemovePizza,
+} = cartSlice.actions;
 export default cartSlice.reducer;
