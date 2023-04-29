@@ -1,0 +1,44 @@
+.cartBtn_btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 5px;
+  margin-left: auto;
+
+  width: 50px;
+  height: 50px;
+
+  border-radius: 50%;
+  background-color: #fff;
+
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  &:hover {
+    transform: scale(1.1);
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+      rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  }
+}
+
+.cartBtn_img {
+  width: 30px;
+  height: 30px;
+  fill: red;
+}
+
+.cartBtn_itemWrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+
+  border-radius: 50%;
+
+  background-color: rgba(230, 221, 224, 0.87);
+}
