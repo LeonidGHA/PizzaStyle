@@ -21,33 +21,17 @@ const cartSlice = createSlice({
     cartRemovePizza: (state, { payload }) => {
       state.chosen = payload;
     },
+    cartClearPizza: (state) => {
+      state.chosen = initialState.chosen;
+    },
   },
 });
-
-// extraReducers: (builder) => {
-//   builder.addCase(registrationUser.pending, (state) => {
-//     state.isLoading = true;
-//     state.error = null;
-//   });
-//   builder.addCase(registrationUser.fulfilled, (state, { payload }) => {
-//     state.user = {
-//       ...payload,
-//     };
-//     state.isLoading = false;
-//     state.isLogIn = true;
-//     state.error = null;
-//   });
-//   builder.addCase(registrationUser.rejected, (state, { payload }) => {
-//     state.isLoading = false;
-//     state.isLogIn = false;
-//     state.error = payload;
-//   });
-// },
 
 export const {
   cartAddPizza,
   cartIncrementPizza,
   cartDecrementPizza,
   cartRemovePizza,
+  cartClearPizza,
 } = cartSlice.actions;
 export default cartSlice.reducer;

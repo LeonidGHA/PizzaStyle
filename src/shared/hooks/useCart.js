@@ -55,7 +55,15 @@ const useCart = () => {
     const filterPizzas = cartListPizzas.filter((elem) => elem.id !== id);
     dispatch(cartRemovePizza(filterPizzas));
   };
-  return { addPizza, incrementPizza, decrementPizza, removePizza, totalPrice };
+  return {
+    addPizza,
+    incrementPizza,
+    decrementPizza,
+    removePizza,
+    totalPrice,
+    cartListPizzas,
+    listPizzas,
+  };
 };
 
 export default useCart;
