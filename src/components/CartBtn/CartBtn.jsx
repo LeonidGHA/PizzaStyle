@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { ReactComponent as CartImg } from "../../shared/images/Cart.svg";
 
 import CustomBtn from "../../shared/CustomBtn/CustomBtn";
@@ -7,12 +8,13 @@ import { getAllCartPizzas } from "../../redux/cart/cart-selectors";
 
 import css from "./CartBtn.Module.scss";
 const CartBtn = () => {
+  const navige = useNavigate();
   const cartPizzas = useSelector(getAllCartPizzas);
   const quantity = cartPizzas.reduce((acc, el) => {
     return acc + el.quantity;
   }, 0);
   return (
-    <CustomBtn className={css.cartBtn_btn}>
+    <CustomBtn className={css.cartBtn_btn} onClick={() => navige("/cart")}>
       <CartImg className={css.cartBtn_img} />
       {quantity > 0 && (
         <div className={css.cartBtn_itemWrapper}>

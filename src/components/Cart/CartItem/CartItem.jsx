@@ -18,7 +18,7 @@ const CartItem = ({ el, cartHook }) => {
   const { incrementPizza, decrementPizza, removePizza } = cartHook;
   const pizzaCount = allPizzasCart.find((el) => el.id === id);
   return (
-    <li>
+    <li className={css.cartItem}>
       <article className={css.cartItem_container}>
         <div className={css.cartItem_imageWrapper}>
           <img

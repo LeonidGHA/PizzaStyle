@@ -21,7 +21,6 @@ const pizzasSlise = createSlice({
       state.error = null;
     });
     builder.addCase(getPizzas.rejected, (state, { payload }) => {
-      console.log(payload);
       state.isLoading = false;
       state.error = payload;
     });

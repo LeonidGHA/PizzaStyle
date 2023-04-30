@@ -1,8 +1,15 @@
-.pizzaList_list {
-  display: grid;
-  justify-content: center;
-  grid-template-columns: repeat(auto-fill, 360px);
-  gap: 20px;
+@import "../../../shared/Styles/";
 
-  width: 100%;
+.pizzaList_list {
+  @include media-query(tablet) {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fill, 330px);
+    gap: 20px;
+
+    width: 100%;
+  }
+  @include media-query(desktop) {
+    grid-template-columns: repeat(auto-fill, 360px);
+  }
 }

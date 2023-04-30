@@ -25,9 +25,13 @@ const CartPage = () => {
         {cartHook.cartListPizzas.length ? (
           <>
             <CartList cartHook={cartHook} />
-            <span className={css.cartPage_total}>
-              Total: {separationNumberPrice(totalPrice)} UAH
-            </span>
+            <p className={css.cartPage_total}>
+              Total:
+              <span className={css.cartPage_highlight_text}>
+                {separationNumberPrice(totalPrice)}
+              </span>
+              UAH
+            </p>
             <CustomBtn
               className={css.cartPage_clean_btn}
               onClick={() => dispatch(cartClearPizza())}
