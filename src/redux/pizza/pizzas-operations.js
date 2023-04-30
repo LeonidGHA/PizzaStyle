@@ -6,9 +6,10 @@ export const getPizzas = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const result = await servisePizza.getAllPizzas();
+
       return result;
     } catch (error) {
-      rejectWithValue(error);
+      return rejectWithValue(error.message);
     }
   }
 );
