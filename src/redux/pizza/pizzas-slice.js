@@ -16,7 +16,7 @@ const pizzasSlise = createSlice({
       state.error = null;
     });
     builder.addCase(getPizzas.fulfilled, (state, { payload }) => {
-      state.allPizzas = [...state.allPizzas, ...payload];
+      state.allPizzas = payload;
       state.isLoading = false;
       state.error = null;
     });
