@@ -1,5 +1,7 @@
 import { useSelector } from "react-redux";
 
+import { separationNumberPrice } from "../../../Helpers/TextFormating/textFormating";
+
 import { getAllCartPizzas } from "../../../redux/cart/cart-selectors";
 
 import css from "./PizzasItem.module.scss";
@@ -25,7 +27,7 @@ const PizzasItem = ({ el, cartHook }) => {
           <h2 className={css.pizzaItem_title}>{title}</h2>
           <p className={css.pizzaItem_description}>{description}</p>
           <div className={css.pizzaItem_priceWrapper}>
-            <span>{price} UAH</span>
+            <span>{separationNumberPrice(price)} UAH</span>
             {pizzaCount ? (
               <div className={css.pizzaItem_quantityWrapper}>
                 <button

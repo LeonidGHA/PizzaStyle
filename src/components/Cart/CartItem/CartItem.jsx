@@ -1,5 +1,13 @@
 import { useSelector } from "react-redux";
 
+import CustomBtn from "../../../shared/CustomBtn/CustomBtn";
+
+import { ReactComponent as RemoveSVG } from "../../../shared/images/remove.svg";
+import { ReactComponent as PlusSVG } from "../../../shared/images/plus.svg";
+import { ReactComponent as MinusSVG } from "../../../shared/images/minus.svg";
+
+import { separationNumberPrice } from "../../../Helpers/TextFormating/textFormating";
+
 import { getAllCartPizzas } from "../../../redux/cart/cart-selectors";
 
 import css from "./CartItem.module.scss";
@@ -25,33 +33,42 @@ const CartItem = ({ el, cartHook }) => {
           <h2 className={css.cartItem_title}>{title}</h2>
           <p className={css.cartItem_description}>{description}</p>
           <div className={css.cartItem_priceWrapper}>
-            <span>{price} UAH</span>
+            <span>{separationNumberPrice(price)} UAH</span>
             <div className={css.cartItem_quantityWrapper}>
-              <button
-                type="button"
+              <CustomBtn
                 className={css.cartItem_quantityBtn}
                 onClick={() => decrementPizza(id)}
               >
-                -
-              </button>
+                <MinusSVG
+                  className={css.cartItem_quantityBtn_SVG}
+                  width="20"
+                  height="20"
+                />
+              </CustomBtn>
               <span>{pizzaCount ? pizzaCount.quantity : "0"}</span>
-              <button
-                type="button"
+              <CustomBtn
                 className={css.cartItem_quantityBtn}
                 onClick={() => incrementPizza(id)}
               >
-                +
-              </button>
+                <PlusSVG
+                  className={css.cartItem_quantityBtn_SVG}
+                  width="20"
+                  height="20"
+                />
+              </CustomBtn>
             </div>
           </div>
         </div>
-        <button
-          type="button"
+        <CustomBtn
           className={css.cartItem_btnRemove}
           onClick={() => removePizza(id)}
         >
-          x
-        </button>
+          <RemoveSVG
+            className={css.cartItem_btnRemove_SVG}
+            width="20"
+            height="20"
+          />
+        </CustomBtn>
       </article>
     </li>
   );

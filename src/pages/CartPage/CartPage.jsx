@@ -1,9 +1,12 @@
 import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
+
 import HtmlMainMarkup from "../../Helpers/HtmlMarkup/HtmlMainMarkup";
-import CartList from "../../components/Cart/PizzasList/CartList";
+import CartList from "../../components/Cart/CartList/CartList";
+import CustomBtn from "../../shared/CustomBtn/CustomBtn";
 
 import useCart from "../../shared/hooks/useCart";
+import { separationNumberPrice } from "../../Helpers/TextFormating/textFormating";
 
 import { cartClearPizza } from "../../redux/cart/cart-slice";
 
@@ -13,26 +16,35 @@ const CartPage = () => {
   const dispatch = useDispatch();
   const cartHook = useCart();
 
+  const totalPrice = cartHook.totalPrice();
+
   return (
     <HtmlMainMarkup>
-      <section className={css.section_wrapper}>
-        <h1> CartPage</h1>
+      <section className={css.cartPage_section_wrapper}>
+        <h1 className="visually-hidden"> CartPage</h1>
         {cartHook.cartListPizzas.length ? (
-          <CartList cartHook={cartHook} />
+          <>
+            <CartList cartHook={cartHook} />
+            <span className={css.cartPage_total}>
+              Total: {separationNumberPrice(totalPrice)} UAH
+            </span>
+            <CustomBtn
+              className={css.cartPage_clean_btn}
+              onClick={() => dispatch(cartClearPizza())}
+            >
+              Make an order
+            </CustomBtn>
+          </>
         ) : (
-          <p>
-            Please, choose pizza <NavLink to="/">here</NavLink>
-          </p>
+          <div className={css.cartPage_notification_wrapper}>
+            <p className={css.cartPage_notification_text}>
+              Please, choose pizza{" "}
+              <NavLink className={css.cartPage_notification_link} to="/">
+                here
+              </NavLink>
+            </p>
+          </div>
         )}
-
-        <span>Total: {cartHook.totalPrice()} UAH</span>
-        <button
-          type="button"
-          // className={css.cartItem_btnRemove}
-          onClick={() => dispatch(cartClearPizza())}
-        >
-          Make an order
-        </button>
       </section>
     </HtmlMainMarkup>
   );

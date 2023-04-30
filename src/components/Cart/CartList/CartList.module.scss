@@ -1,7 +1,10 @@
 .cartList_list {
-  width: 100%;
   display: grid;
   justify-content: center;
   grid-template-columns: repeat(auto-fill, 340px);
   gap: 20px;
+
+  width: 100%;
+
+  margin-bottom: 30px;
 }

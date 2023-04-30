@@ -1,7 +1,8 @@
 .pizzaList_list {
-  width: 100%;
   display: grid;
   justify-content: center;
-  grid-template-columns: repeat(auto-fill, 340px);
+  grid-template-columns: repeat(auto-fill, 360px);
   gap: 20px;
+
+  width: 100%;
 }

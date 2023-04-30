@@ -14,9 +14,11 @@ const CartBtn = () => {
   return (
     <CustomBtn className={css.cartBtn_btn}>
       <CartImg className={css.cartBtn_img} />
-      <div className={css.cartBtn_itemWrapper}>
-        <span>{quantity}</span>
-      </div>
+      {quantity > 0 && (
+        <div className={css.cartBtn_itemWrapper}>
+          <span className={css.cartBtn_item_text}>{quantity}</span>
+        </div>
+      )}
     </CustomBtn>
   );
 };
